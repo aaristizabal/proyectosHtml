@@ -1,0 +1,312 @@
+//iniciar git en el directorio
+acari@ANAC MINGW64 /c/Ana/github
+$ git init
+Initialized empty Git repository in C:/Ana/github/.git/
+
+//estado actual de archivos en git
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        holaMundo.html
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+//agregar un nuevo archivo a git
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git add .
+
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   holaMundo.html
+
+//realizar commit en git
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git commit -m "prueba con github"
+[master (root-commit) ea9116f] prueba con github
+ 1 file changed, 12 insertions(+)
+ create mode 100644 holaMundo.html
+
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   holaMundo.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   holaMundo.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git add .
+
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   holaMundo.html
+
+
+//eliminar un commit 
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git rm --cached holaMundo.html
+rm 'holaMundo.html'
+
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    holaMundo.html
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        holaMundo.html
+
+
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git add .
+
+//agregar un nuevo commit
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git commit -m "actualizacion 2 en git"
+[master 0640b33] actualizacion 2 en git
+ 1 file changed, 2 insertions(+)
+
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+//muestra informacion de los commit realizados
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git log
+commit 0640b337ee7d444b5e5b36dbdd7d381f6bc47071 (HEAD -> master)
+Author: acarislon <ana.aristizabal@gmail.com>
+Date:   Tue Jan 3 19:18:29 2023 -0500
+
+    actualizacion 2 en git
+
+commit ea9116f97e5c5c0f392e07c1c1b2cb384e583d55
+Author: acarislon <ana.aristizabal@gmail.com>
+Date:   Tue Jan 3 18:44:10 2023 -0500
+
+    prueba con github
+
+//muestra detalle de los commit realizados
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git log --stat
+commit 0640b337ee7d444b5e5b36dbdd7d381f6bc47071 (HEAD -> master)
+Author: acarislon <ana.aristizabal@gmail.com>
+Date:   Tue Jan 3 19:18:29 2023 -0500
+
+    actualizacion 2 en git
+
+ holaMundo.html | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit ea9116f97e5c5c0f392e07c1c1b2cb384e583d55
+Author: acarislon <ana.aristizabal@gmail.com>
+Date:   Tue Jan 3 18:44:10 2023 -0500
+
+    prueba con github
+
+ holaMundo.html | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+//muestra las ramas creadas
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git log --oneline
+0640b33 (HEAD -> master) actualizacion 2 en git
+ea9116f prueba con github
+
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git checkout ea9116f
+Note: switching to 'ea9116f'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at ea9116f prueba con github
+
+acari@ANAC MINGW64 /c/Ana/github ((ea9116f...))
+$ git log
+commit ea9116f97e5c5c0f392e07c1c1b2cb384e583d55 (HEAD)
+Author: acarislon <ana.aristizabal@gmail.com>
+Date:   Tue Jan 3 18:44:10 2023 -0500
+
+    prueba con github
+
+//muestra la lista de las ramas
+acari@ANAC MINGW64 /c/Ana/github ((ea9116f...))
+$ git branch
+* (HEAD detached at ea9116f)
+  master
+
+//cambiar a la rama master
+acari@ANAC MINGW64 /c/Ana/github ((ea9116f...))
+$ git checkout master
+Previous HEAD position was ea9116f prueba con github
+Switched to branch 'master'
+
+//crear una rama
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git checkout -b ramaheader
+Switched to a new branch 'ramaheader'
+
+//crear commit en la nueva rama
+acari@ANAC MINGW64 /c/Ana/github (ramaheader)
+$ git commit -m "insertar texto en rama header como prueba"
+On branch ramaheader
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   holaMundo.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+acari@ANAC MINGW64 /c/Ana/github (ramaheader)
+$ git add .
+
+acari@ANAC MINGW64 /c/Ana/github (ramaheader)
+$ git status
+On branch ramaheader
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   holaMundo.html
+
+
+acari@ANAC MINGW64 /c/Ana/github (ramaheader)
+$ git log
+commit 0640b337ee7d444b5e5b36dbdd7d381f6bc47071 (HEAD -> ramaheader, master)
+Author: acarislon <ana.aristizabal@gmail.com>
+Date:   Tue Jan 3 19:18:29 2023 -0500
+
+    actualizacion 2 en git
+
+commit ea9116f97e5c5c0f392e07c1c1b2cb384e583d55
+Author: acarislon <ana.aristizabal@gmail.com>
+Date:   Tue Jan 3 18:44:10 2023 -0500
+
+    prueba con github
+
+acari@ANAC MINGW64 /c/Ana/github (ramaheader)
+$ git commit -m "insertar texto en rama header como prueba"
+[ramaheader 71e2453] insertar texto en rama header como prueba
+ 1 file changed, 3 insertions(+)
+
+acari@ANAC MINGW64 /c/Ana/github (ramaheader)
+$ git log
+commit 71e24538285853495dbb72473448c8a274d701f1 (HEAD -> ramaheader)
+Author: acarislon <ana.aristizabal@gmail.com>
+Date:   Tue Jan 3 19:34:40 2023 -0500
+
+    insertar texto en rama header como prueba
+
+commit 0640b337ee7d444b5e5b36dbdd7d381f6bc47071 (master)
+Author: acarislon <ana.aristizabal@gmail.com>
+Date:   Tue Jan 3 19:18:29 2023 -0500
+
+    actualizacion 2 en git
+
+commit ea9116f97e5c5c0f392e07c1c1b2cb384e583d55
+Author: acarislon <ana.aristizabal@gmail.com>
+Date:   Tue Jan 3 18:44:10 2023 -0500
+
+    prueba con github
+
+//lista las ramas existentes
+acari@ANAC MINGW64 /c/Ana/github (ramaheader)
+$ git branch
+  master
+* ramaheader
+
+//cambiarse a la rama master
+acari@ANAC MINGW64 /c/Ana/github (ramaheader)
+$ git checkout master
+Switched to branch 'master'
+
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git log
+commit 0640b337ee7d444b5e5b36dbdd7d381f6bc47071 (HEAD -> master)
+Author: acarislon <ana.aristizabal@gmail.com>
+Date:   Tue Jan 3 19:18:29 2023 -0500
+
+    actualizacion 2 en git
+
+commit ea9116f97e5c5c0f392e07c1c1b2cb384e583d55
+Author: acarislon <ana.aristizabal@gmail.com>
+Date:   Tue Jan 3 18:44:10 2023 -0500
+
+    prueba con github
+
+//unir la rama header a la master
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git merge ramaheader
+Updating 0640b33..71e2453
+Fast-forward
+ holaMundo.html | 3 +++
+ 1 file changed, 3 insertions(+)
+
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git branch
+* master
+  ramaheader
+
+//borrar la rama header
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git branch -d ramaheader
+Deleted branch ramaheader (was 71e2453).
+
+acari@ANAC MINGW64 /c/Ana/github (master)
+$ git log
+commit 71e24538285853495dbb72473448c8a274d701f1 (HEAD -> master)
+Author: acarislon <ana.aristizabal@gmail.com>
+Date:   Tue Jan 3 19:34:40 2023 -0500
+
+    insertar texto en rama header como prueba
+
+commit 0640b337ee7d444b5e5b36dbdd7d381f6bc47071
+Author: acarislon <ana.aristizabal@gmail.com>
+Date:   Tue Jan 3 19:18:29 2023 -0500
+
+    actualizacion 2 en git
+
+commit ea9116f97e5c5c0f392e07c1c1b2cb384e583d55
+Author: acarislon <ana.aristizabal@gmail.com>
+Date:   Tue Jan 3 18:44:10 2023 -0500
+
+    prueba con github
